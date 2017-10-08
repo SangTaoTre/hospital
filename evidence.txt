@@ -1,3 +1,15 @@
 ##################   Any change need to be record here   ##################
 
 1. Let's go
+
+2. Đạt 12:13AM- 9/10/2017 
+	Tạo cơ sở dữ liệu bằng migration
+	Các bước get database:
+		a. Tạo database trên phpmyadmin
+		b. Vào file .env 
+			Nếu dòng APP_KEY chưa có key thì vào command: php artisan key:generate
+		c. Cấu hình DB_DATABASE=hospital DB_USERNAME=root DB_PASSWORD=(rỗng)
+		d. Run: php artisan migrate
+			Nếu có lỗi  SQLSTATE[42000]: 1071 Specified key was too long;
+			Vào: app/Providers/AppServiceProvider.php thêm dòng
+				Schema::defaultStringLength(191); để set lại độ dài defaultStringLength
